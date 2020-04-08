@@ -1761,7 +1761,10 @@
         @include button-focus($primary-text-color, $panel-bg-color, 10);
     }
     li.stat.clickable {
-        color: $secondary-text-color; // &:hover{ // @include button-focus($primary-text-color, $panel-bg-color, 10); // }
+        color: $secondary-text-color;
+        // &:hover{
+        // @include button-focus($primary-text-color, $panel-bg-color, 10);
+        // }
     }
     .mymarkets-tabs {
         > li {
@@ -2837,4 +2840,7 @@ div.customizable-column--selector--dropdown {
     ul.ant-select-dropdown-menu-vertical {
         max-height: 100% !important;
     }
+}
+.ant-table-tbody > tr.ant-table-row-selected td {
+    background-color: #4f596633 !important;
 }

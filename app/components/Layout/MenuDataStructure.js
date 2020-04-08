@@ -48,7 +48,7 @@ class MenuDataStructure {
                 item.inDropdownBehavior = MenuItemType.Always;
             }
             if (item.inDropdownBehavior === MenuItemType.WhenNotMyAccount) {
-                item.hidden = state.isMyAccount;
+                item.hidden = state.isMyAccount || !state.currentAccount;
                 item.inDropdownBehavior = MenuItemType.Always;
             }
             if (item.inDropdownBehavior === MenuItemType.WhenNotInHeader) {
@@ -117,11 +117,12 @@ class MenuDataStructure {
             allItems.market,
             allItems.explorer,
             allItems.divider,
-            allItems.insight,
             allItems.transfer,
             allItems.deposit,
             allItems.withdraw,
+            allItems.account_voting,
             allItems.spotlight,
+            allItems.insight,
             allItems.divider,
             // allItems.account_voting,
             // allItems.account_assets,
@@ -226,7 +227,7 @@ class MenuDataStructure {
                 target: state.clickHandlers.showSend,
                 icon: "transfer",
                 text: "header.payments",
-                inDropdownBehavior: MenuItemType.Always
+                inDropdownBehavior: MenuItemType.WhenAccount
             }),
             deposit: state => ({
                 target: state.clickHandlers.showDeposit,
@@ -241,7 +242,7 @@ class MenuDataStructure {
                     disabled: !state.enableDepositWithdraw
                 },
                 disabled: !state.enableDepositWithdraw,
-                inDropdownBehavior: MenuItemType.Always
+                inDropdownBehavior: MenuItemType.WhenAccount
             }),
             withdraw: state => ({
                 target: state.clickHandlers.showWithdraw,
@@ -253,7 +254,7 @@ class MenuDataStructure {
                     disabled: !state.enableDepositWithdraw
                 },
                 disabled: !state.enableDepositWithdraw,
-                inDropdownBehavior: MenuItemType.Always
+                inDropdownBehavior: MenuItemType.WhenAccount
             }),
             deposit_withdraw: state => ({
                 includePattern: "deposit-withdraw",
@@ -293,7 +294,7 @@ class MenuDataStructure {
             insight: state => ({
                 includePattern: "/account",
                 icon: "insight",
-                text: "header.insight",
+                text: "header.advanced",
                 inHeaderBehavior: MenuItemType.Never,
                 inDropdownBehavior: MenuItemType.WhenAccount
             }),
